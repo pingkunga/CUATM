@@ -1,0 +1,17 @@
+http://localhost/hw4/
+>composer dump-autoload
+"%CD%"\vendor\bin\phpunit --bootstrap="%CD%"\vendor\autoload.php "%CD%"\test\
+
+phpunit --bootstrap="%CD%"\vendor\autoload.php "%CD%"\test\
+
+VSCODE
+phpunit --bootstrap=D:\18MasterCUSE\-2110724-Testing\TermProj\01IntegationTest\html\vendor\autoload.php D:\18MasterCUSE\-2110724-Testing\TermProj\01IntegationTest\html\test\DepositTest.php
+
+phpunit --bootstrap="%CD%"\vendor\autoload.php DepositTest 
+phpunit \test/DepositTest.php
+phpunit --filter testSimpleDeposit
+
+
+phpunit --filter testSimpleDeposit D:\18MasterCUSE\-2110724-Testing\TermProj\01IntegationTest\html\test\DepositTest.php
+
+phpunit --bootstrap="%CD%"\vendor\autoload.php --filter testSimpleDeposit DepositTest D:\18MasterCUSE\-2110724-Testing\TermProj\01IntegationTest\html\test\DepositTest.php
