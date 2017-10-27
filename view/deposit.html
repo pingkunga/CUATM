@@ -143,6 +143,7 @@
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
+                //alert(base_url());
                 $.ajax({
                     method: "POST",
                     //url: "/../../src/deposit/DepositController.php",
@@ -181,7 +182,7 @@
              || (location.host == 'warroom.debuggingsoft.com')){
                 var url = location.origin+'/'+pathparts[1].trim('/')+'/'; // http://localhost/myproject/
             }else{
-                var url = location.origin; // http://stackoverflow.com
+                var url = location.origin+'/'; // http://stackoverflow.com
             }
             return url;
         }
