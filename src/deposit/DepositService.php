@@ -1,7 +1,7 @@
 <?php namespace CUATM;
     //require_once "helper/MySQL.php";
     //include dirname(__FILE__).'/../../helper/MySQL.php';
-    require_once(__DIR__.'../../helper/MySQL.php');
+    require_once(__DIR__.'../../database/MySQL.php');
     require_once('stub/ServiceAuthentication.php');
     require_once(__DIR__.'../../output/ObjectResult.php');
     
