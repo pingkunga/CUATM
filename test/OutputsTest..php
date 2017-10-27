@@ -1,9 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Atm\ObjectResult;
+use output\Outputs;
 
-final class ObjectResultTest extends TestCase {
+final class OutputsTest extends TestCase {
     function testAssignValueToAccountNumber() {
         $result = new ObjectResult();
         $result->accountNumber = '1234567890';

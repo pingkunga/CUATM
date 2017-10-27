@@ -3,10 +3,10 @@
     //include dirname(__FILE__).'/../../helper/MySQL.php';
     require_once(__DIR__.'../../database/MySQL.php');
     require_once('stub/ServiceAuthentication.php');
-    require_once(__DIR__.'../../output/ObjectResult.php');
+    require_once(__DIR__.'../../outputs/Outputs.php');
     
     use Database\MySQL;
-    use CUATM\ObjectResult;
+    use Output\Outputs;
     use Exception;
 
     class DepositService{
@@ -100,10 +100,10 @@
 
         public function deposit(ServiceAuthentication $ServiceAuthentication
                               , $accountNum
-                              , $depositAmount): ObjectResult
+                              , $depositAmount): Outputs
         {
             $canDeposit = true;
-            $result = new ObjectResult();
+            $result = new Outputs();
         
             #บริการฝากเงินเข้าบัญชีโดยต้องตรวจสอบหมายเลขบัญชีและจำนวนเงินฝาก คือ
             if(!is_numeric($depositAmount)) 
@@ -154,7 +154,7 @@
             return $result;
         }
 
-        private function setNewBalance(ObjectResult $result)
+        private function setNewBalance(Outputs $result)
         {
             //http://php.net/manual/en/mysqli.real-escape-string.php
             //UPDATE ACCOUNT SET BALANCE = 5000 WHERE NO = '5971005021'

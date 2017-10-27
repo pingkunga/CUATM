@@ -10,6 +10,11 @@
             <directory suffix="Test.php">test</directory>
         </testsuite>
     </testsuites>
+    <testsuites>
+        <testsuite name="Output">
+            <directory suffix="Test.php">test</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
 
 
