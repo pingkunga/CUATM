@@ -93,7 +93,7 @@
                                     <span class="pink"> <span id="accNo">5971005021</span> (<span id="accName">PingkungaA</span>) </span>
                                 </p>
                                 <p>ยอดเงินคงเหลือ :
-                                    <span id="accBalance" class="pink">accBalance</span> บาท
+                                    <span id="accBalance" class="pink">5000</span> บาท
                                 </p>
                                 <form id="depositForm" class="form-horizontal">
                                     <div class="form-group row">
@@ -145,7 +145,8 @@
             }).then(function () {
                 $.ajax({
                     method: "POST",
-                    url: "../../src/deposit/DepositController.php",
+                    //url: "/../../src/deposit/DepositController.php",
+                    url: base_url() + "src/deposit/DepositController.php",
                     dataType: "json",
                     data: { accountNo: $("#accNo").text()
                           , depositAmount: $("#amount").val()
@@ -172,6 +173,18 @@
               
             event.preventDefault();
         });
+
+        //จริงๆ ควรทำ Base Path
+        function base_url() {
+            var pathparts = location.pathname.split('/');
+            if ((location.host == 'localhost') 
+             || (location.host == 'warroom.debuggingsoft.com')){
+                var url = location.origin+'/'+pathparts[1].trim('/')+'/'; // http://localhost/myproject/
+            }else{
+                var url = location.origin; // http://stackoverflow.com
+            }
+            return url;
+        }
     </script>
 </body>
 </html>
