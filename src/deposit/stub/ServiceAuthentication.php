@@ -1,20 +1,20 @@
-<?php namespace CUATM;
+<?php 
 
     class ServiceAuthentication
     {
-        public function Authorize($accountNum) : array
+        public function accountAuthenticationProvider(string $accNo) : array
         {
-            if ($accountNum == '1212312121')
+            if ($accNo == '1212312121')
             {
-                return array('accountNum' => '1212312121'
-                ,'accountName' => 'PingkungA'
-                ,'currentBalance' => 0);
+                return array('accNo' => '1212312121'
+                            ,'accName' => 'PingkungA'
+                            ,'accBalance' => 0);
             }
-            else if ($accountNum == '5971005021')
+            else if ($accNo == '5971005021')
             {
-                return array('accountNum' => '5971005021'
-                ,'accountName' => 'PingkungA'
-                ,'currentBalance' => 5000);
+                return array('accNo' => '5971005021'
+                            ,'accName' => 'PingkungA'
+                            ,'accBalance' => 5000);
             }
             
             return array();

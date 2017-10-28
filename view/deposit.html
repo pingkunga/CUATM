@@ -149,17 +149,19 @@
                     //url: "/../../src/deposit/DepositController.php",
                     url: base_url() + "src/deposit/DepositController.php",
                     dataType: "json",
-                    data: { accountNo: $("#accNo").text()
+                    data: { 
+                            accNo: $("#accNo").text()
                           , depositAmount: $("#amount").val()
                           },
                     success: function(data) {
 					    //alert("accountBalance: " + data.accountBalance + "|accountNumber: " + data.accountNumber + "|message: " + data.errorMessage);
                         console.log(data)
-                        swal('ฝากเงินเรียบร้อย!', 'ยอดเงินคงเหลือ = ' + data.accountBalance +' บาท', "success");
+                        swal('ฝากเงินเรียบร้อย!', 'ยอดเงินคงเหลือ = ' + commaSeparateNumber(data.accountBalance) +' บาท', "success");
                         
                     },
-                    error: function(data) { 
-                        swal('เกิดข้อผิดพลาด!', 'ข้อผิดพลาด ' + data.errorMessage, "error");
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(JSON.stringify(jqXHR));
+                        swal('เกิดข้อผิดพลาด!', 'ข้อผิดพลาด ' + textStatus + ' : ' + errorThrown, "error");
                     }
                 })
             }, function (dismiss) {
@@ -174,6 +176,13 @@
               
             event.preventDefault();
         });
+
+        function commaSeparateNumber(val) {
+            while (/(\d+)(\d{3})/.test(val.toString())) {
+                val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+            }
+            return val;
+        }
 
         //จริงๆ ควรทำ Base Path
         function base_url() {
