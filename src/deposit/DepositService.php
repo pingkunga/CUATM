@@ -25,12 +25,17 @@
             } 
             else if ($depositAmount <= 0)
             {
-                # 2. จำนวนเงินฝากต้อง > 0
+                # 3. จำนวนเงินฝากต้อง > 0
                 $result->errorMessage = 'Deposit amount must greater than zero';
                 $canDeposit = false;
             }
+            else if (!is_int($depositAmount))
+            {
+                $result->errorMessage = 'Deposit amount must be integer';
+                $canDeposit = false;
+            }
             
-            # 3. หมายเลขบัญชีมีในฐานข้อมูลระบบหรือไม่ผ่านบริการServiceAuthentication + ดึงยอดล่าสุด
+            # 4. หมายเลขบัญชีมีในฐานข้อมูลระบบหรือไม่ผ่านบริการServiceAuthentication + ดึงยอดล่าสุด
             $serviceAuth = new ServiceAuthentication();
             $seviceAuthData = $serviceAuth->accountAuthenticationProvider($accNo);
             /*
@@ -46,13 +51,13 @@
 
             if ($canDeposit)
             {
-                # 4. ปรับปรุงยอด
+                # 5. ปรับปรุงยอด
                 $result->accountNumber = $seviceAuthData['accNo'];
                 $result->accountName = $seviceAuthData['accName'];
                 $result->accountBalance = $seviceAuthData['accBalance'] + $depositAmount;
                 $result->errorMessage = 'Deposit Success';
                 
-                # 5. เรียก Method setBalance เพื่ออัพเดท ข้อมูลเงินฝากล่าสุด ?
+                # 6. เรียก Method setBalance เพื่ออัพเดท ข้อมูลเงินฝากล่าสุด ?
                 try
                 {
                     $this->setNewBalance($result);
