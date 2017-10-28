@@ -1,6 +1,6 @@
 <?php
     require_once("src/deposit/DepositService.php");
-    
+
     use PHPUnit\Framework\TestCase;
     use Operation\DepositService;
 
@@ -67,7 +67,7 @@
             $depositService = new DepositService();
 
             //WHEN
-            $depositResult = $deposit->deposit('1212312121', 'สองร้อยบาท');
+            $depositResult = $depositService->deposit('1212312121', 'สองร้อยบาท');
 
             //THEN
             $this->assertEquals('Deposit amount must be numeric', $depositResult->errorMessage);
@@ -78,22 +78,24 @@
             $depositService = new DepositService();
 
             //WHEN
-            $depositResult = $depositService->deposit($stub, '1212312121', -1);
+            $depositResult = $depositService->deposit('1212312121', -1);
 
             //THEN
             $this->assertEquals('Deposit amount must greater than zero', $depositResult->errorMessage);
         }
         
+
         public function testDepositWhenDepositAmountIsZero(): void {
             //GIVEN
             $depositService = new DepositService();
 
             //WHEN
-            $depositResult = $depositService->deposit($stub, '1212312121', 0);
+            $depositResult = $depositService->deposit('1212312121', 0);
 
             //THEN
             $this->assertEquals('Deposit amount must greater than zero', $depositResult->errorMessage);
         }
+
       
     }
 ?>

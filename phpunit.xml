@@ -2,17 +2,17 @@
 <phpunit colors="true">
     <testsuites>
         <testsuite name="Deposit">
-            <directory suffix="Test.php">test</directory>
+            <directory suffix="Test.php">test/Deposit</directory>
         </testsuite>
     </testsuites>
     <testsuites>
         <testsuite name="Transfer">
-            <directory suffix="Test.php">test</directory>
+            <directory suffix="Test.php">test/Deposit</directory>
         </testsuite>
     </testsuites>
     <testsuites>
         <testsuite name="Output">
-            <directory suffix="Test.php">test</directory>
+            <directory suffix="Test.php">test/Deposit</directory>
         </testsuite>
     </testsuites>
 </phpunit>

@@ -1,7 +1,7 @@
 <?php
     require_once "src/deposit/driver/TransferService.php";
     use PHPUnit\Framework\TestCase;
-    use CUATM\TransferService;
+    use Operation\TransferService;
 
     class TransferServiceDriverTest extends TestCase {
         public function testCanPerformUnitTest(): void {
