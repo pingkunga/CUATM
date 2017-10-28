@@ -11,10 +11,14 @@
     use Exception;
 
     class DepositService{
+        private $accNo;
+    
+        // constructors
+        function __construct(string $accNo) {
+            $this->accNo = $accNo;
+        }
 
-        //ตัว Constructor ต้องรอคุยกับทุกกลุ่ม
-
-        public function deposit($accNo, $depositAmount): Outputs
+        public function deposit(int $depositAmount): Outputs
         {
             $canDeposit = true;
             $result = new Outputs();
@@ -40,13 +44,13 @@
             
             # 4. หมายเลขบัญชีมีในฐานข้อมูลระบบหรือไม่ผ่านบริการServiceAuthentication + ดึงยอดล่าสุด
             $serviceAuth = new ServiceAuthentication();
-            $seviceAuthData = $serviceAuth->accountAuthenticationProvider($accNo);
+            $seviceAuthData = $serviceAuth->accountAuthenticationProvider($this->accNo);
             /*
             var_dump($seviceAuthData);
             var_dump(count($seviceAuthData));
             var_dump($seviceAuthData['accountNum']== $accountNum);
             */
-            if($seviceAuthData['accNo']!= $accNo)
+            if($seviceAuthData['accNo']!= $this->accNo)
             {
                 $result->errorMessage = 'Error account number not found';
                 $canDeposit = false;

@@ -11,9 +11,9 @@
     $depositAmount = $_POST['depositAmount'];
 
     //var_dump($depositAmount);
-    $depositService = new DepositService();
+    $depositService = new DepositService($accNo);
     
-    $result = $depositService->deposit($accNo, $depositAmount);
+    $result = $depositService->deposit($depositAmount);
     //ต้อง Echo นะไม่งั้น Ajax ยังไม่รู้
     echo json_encode($result);
 ?>

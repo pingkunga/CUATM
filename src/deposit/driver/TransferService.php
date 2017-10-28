@@ -11,9 +11,9 @@
     {
         public function transfer($sourceAccNo, $targetAccNo, $transferAmount): Outputs
         {
-            $depositService = new DepositService();
+            $depositService = new DepositService($targetAccNo);
             
-            $result = $depositService->deposit($targetAccNo, $transferAmount);
+            $result = $depositService->deposit($transferAmount);
         
             return $result;
         }   

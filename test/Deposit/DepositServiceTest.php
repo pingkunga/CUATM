@@ -49,10 +49,10 @@
 
 
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('5971005021');
 
             //WHEN
-            $depositResult = $depositService->deposit('5971005021', 5500);
+            $depositResult = $depositService->deposit(5500);
     
             //Then
             //$this->assertEquals(count($stub->Authorize('1212312121')), 3);
@@ -64,10 +64,10 @@
         
         public function testDepositWhenDepositAmountIsNotNumberic(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', 'สองร้อยบาท');
+            $depositResult = $depositService->deposit('สองร้อยบาท');
 
             //THEN
             $this->assertEquals('Deposit amount must be numeric', $depositResult->errorMessage);
@@ -75,10 +75,10 @@
 
         public function testDepositWhenDepositAmountIsInteger(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', 5000);
+            $depositResult = $depositService->deposit(5000);
 
             //THEN
             $this->assertEquals(5000, $depositResult->accountBalance);
@@ -86,10 +86,10 @@
         
         public function testDepositWhenDepositAmountIsDecimal(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', 50.50);
+            $depositResult = $depositService->deposit(50.50);
 
             //THEN
             $this->assertEquals('Deposit amount must be integer', $depositResult->errorMessage);
@@ -97,10 +97,10 @@
 
         public function testDepositWhenDepositAmountIsString(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', '50');
+            $depositResult = $depositService->deposit('50');
 
             //THEN
             $this->assertEquals('Deposit amount must be integer', $depositResult->errorMessage);
@@ -108,10 +108,10 @@
 
         public function testDepositWhenDepositAmountIsLessThanZero(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', -1);
+            $depositResult = $depositService->deposit(-1);
 
             //THEN
             $this->assertEquals('Deposit amount must greater than zero', $depositResult->errorMessage);
@@ -120,10 +120,10 @@
 
         public function testDepositWhenDepositAmountIsZero(): void {
             //GIVEN
-            $depositService = new DepositService();
+            $depositService = new DepositService('1212312121');
 
             //WHEN
-            $depositResult = $depositService->deposit('1212312121', 0);
+            $depositResult = $depositService->deposit(0);
 
             //THEN
             $this->assertEquals('Deposit amount must greater than zero', $depositResult->errorMessage);
