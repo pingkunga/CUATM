@@ -1,7 +1,7 @@
 <?php namespace Operation;
 
     require_once('src/deposit/DepositService.php');
-    require_once(__DIR__.'../../stub/ServiceAuthentication.php');
+    require_once(__DIR__.'../../stub/ServiceAuthenticationStub.php');
     
     use Output\Outputs;
     use Operation\DepositService;

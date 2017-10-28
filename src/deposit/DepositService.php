@@ -2,7 +2,7 @@
     //require_once "helper/MySQL.php";
     //include dirname(__FILE__).'/../../helper/MySQL.php';
     require_once(__DIR__.'../../database/MySQL.php');
-    require_once('stub/ServiceAuthentication.php');
+    require_once('stub/ServiceAuthenticationStub.php');
     require_once(__DIR__.'../../outputs/Outputs.php');
     
     use Database\MySQL;
@@ -11,6 +11,9 @@
     use Exception;
 
     class DepositService{
+
+        //ตัว Constructor ต้องรอคุยกับทุกกลุ่ม
+
         public function deposit($accNo, $depositAmount): Outputs
         {
             $canDeposit = true;
@@ -71,7 +74,7 @@
             return $result;
         }
 
-        
+        //เดี๋ยวต้องย้ายไปใช้ของพี่ TA ที่ DBConnection 
         private function setNewBalance(Outputs $result)
         {
             //http://php.net/manual/en/mysqli.real-escape-string.php
