@@ -8,11 +8,12 @@ CUATM - Software Testing Project
 3. Install php lib dependency ด้วย composer install
 
 # Testing การทดสอบ Driver & Stub
-1.Driver คือ ตัวที่เอามาเรียก Code ที่ต้องการทดสอบ (Module(s) Under Test)
 
+1.Driver คือ ตัวที่เอามาเรียก Code ที่ต้องการทดสอบ (Module(s) Under Test)
 2.Stub คือ หนึ่งใน Test Double โดย Stub เป็น Code เขียนแทน Code ส่วนอื่นยังพัฒนาไม่เสร็จ แต่ส่วนที่ต้องการทดสอบ(Module(s) Under Test) ต้องใช้งาน
 
 # Integation Test
+
 Steps for Group Deposit I
 1. Driver Main + Deposit + Stub Service Authen
 >> ใช้คำสั่ง php -S localhost:8000 routerDriver.php เพื่อรัน builtin server
