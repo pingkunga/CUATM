@@ -9,8 +9,8 @@ CUATM - Software Testing Project
 
 # Testing การทดสอบ Driver & Stub
 
-1.Driver คือ ตัวที่เอามาเรียก Code ที่ต้องการทดสอบ (Module(s) Under Test)
-2.Stub คือ หนึ่งใน Test Double โดย Stub เป็น Code เขียนแทน Code ส่วนอื่นยังพัฒนาไม่เสร็จ แต่ส่วนที่ต้องการทดสอบ(Module(s) Under Test) ต้องใช้งาน
+1. Driver คือ ตัวที่เอามาเรียก Code ที่ต้องการทดสอบ (Module(s) Under Test)
+2. Stub คือ หนึ่งใน Test Double โดย Stub เป็น Code เขียนแทน Code ส่วนอื่นยังพัฒนาไม่เสร็จ แต่ส่วนที่ต้องการทดสอบ(Module(s) Under Test) ต้องใช้งาน
 
 # Integation Test
 
