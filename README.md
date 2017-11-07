@@ -1,4 +1,4 @@
-# CUATM
+# CUATM - กลุ่ม DEPOSIT
 CUATM - Software Testing Project
 
 # Install and Setup
