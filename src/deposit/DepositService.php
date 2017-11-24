@@ -29,6 +29,7 @@
             try
             {
                 #บริการฝากเงินเข้าบัญชีโดยต้องตรวจสอบหมายเลขบัญชีและจำนวนเงินฝาก คือ
+               
                 # จำนวนเงินฝากต้องเป็นตัวเลขเท่านั้น
                 if (!is_numeric($depositAmount))
                 {
@@ -61,9 +62,6 @@
                     $canDeposit = false;
                 }
 
-                # หมายเลขบัญชีมีในฐานข้อมูลระบบหรือไม่ผ่านบริการServiceAuthentication + ดึงยอดล่าสุด
-                $seviceAuthData = $this->getServiceAuthen($this->accNo);
-
                 /*
                 var_dump($seviceAuthData);
                 var_dump(count($seviceAuthData));
@@ -72,6 +70,9 @@
 
                 if ($canDeposit)
                 {
+                    # หมายเลขบัญชีมีในฐานข้อมูลระบบหรือไม่ผ่านบริการServiceAuthentication + ดึงยอดล่าสุด
+                    $seviceAuthData = $this->getServiceAuthen($this->accNo);
+
                     # ปรับปรุงยอด
                     $result->accountNumber = $seviceAuthData['accNo'];
                     $result->accountName = $seviceAuthData['accName'];
