@@ -21,7 +21,7 @@
             $this->accNo = $accNo;
         }
 
-        public function deposit($depositAmount): Outputs
+        public function deposit(string $depositAmount): Outputs
         {
             $canDeposit = true;
             $result = new Outputs();
